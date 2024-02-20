@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFC0CB; /* Różowe tło */
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        #question, #thankYouMessage {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        #thankYouMessage {
+            display: none;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="img/hug1.gif" alt="Obrazek">
+    <p id="question">Czy pójdziemy na randkę do Maczka? 😏</p>
+    <div id="buttons">
+        <button id="yesButton">Tak</button>
+        <button id="noButton">Nie</button>
+    </div>
+    <p id="thankYouMessage">No to umówieni 😎</p>
+
+    <script>
+        document.getElementById('noButton').addEventListener('mouseover', function() {
+            this.style.position = 'absolute';
+            this.style.left = Math.random() * window.innerWidth + 'px';
+            this.style.top = Math.random() * window.innerHeight + 'px';
+        });
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.getElementById('yesButton').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none';
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
